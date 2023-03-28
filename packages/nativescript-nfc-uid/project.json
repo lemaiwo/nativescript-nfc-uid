@@ -1,0 +1,73 @@
+{
+  "name": "nativescript-nfc-uid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-nfc-uid",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-nfc-uid",
+        "tsConfig": "packages/nativescript-nfc-uid/tsconfig.json",
+        "packageJson": "packages/nativescript-nfc-uid/package.json",
+        "main": "packages/nativescript-nfc-uid/index.d.ts",
+        "assets": [
+          "packages/nativescript-nfc-uid/*.md",
+          "packages/nativescript-nfc-uid/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-nfc-uid/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "node tools/scripts/build-finish.ts nativescript-nfc-uid"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "dist/packages/nativescript-nfc-uid"
+      ],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx g @nativescript/plugin-tools:focus-packages nativescript-nfc-uid"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/nativescript-nfc-uid/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

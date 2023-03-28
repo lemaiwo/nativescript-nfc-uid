@@ -1,0 +1,35 @@
+{
+  "name": "nativescript-nfc-uid",
+  "version": "6.0.2",
+  "description": "Add a plugin description",
+  "main": "index",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemaiwo/nativescript-nfc-uid.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "iOS",
+    "Android"
+  ],
+  "author": {
+    "name": "Wouter Lemaire",
+    "email": "wouterlemaire120@hotmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/lemaiwo/nativescript-nfc-uid/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/lemaiwo/nativescript-nfc-uid",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed"
+}
